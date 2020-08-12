@@ -40,6 +40,7 @@ class CardHelper {
     String title,
     String imgPath,
     BuildContext context,
+    double width = 2.2,
   }) {
     return Row(
       children: <Widget>[
@@ -52,7 +53,7 @@ class CardHelper {
           title,
           style: categoryTitle,
         ),
-        SpaceHelper.horizontalSpace(screenWidth(context) / 2.2),
+        SpaceHelper.horizontalSpace(screenWidth(context) / width),
         ButtonHelpers.addButton(),
       ],
     );
@@ -61,6 +62,7 @@ class CardHelper {
   static Widget drugCard(
       {String svgPath,
       String grams,
+      double scale,
       String,
       drug,
       String time,
@@ -93,7 +95,7 @@ class CardHelper {
                 )
               : Image.asset(
                   imgPath,
-                  scale: 4,
+                  scale: scale == null ? 4 : scale,
                 ),
           SpaceHelper.horizontalSpace(10),
           Column(

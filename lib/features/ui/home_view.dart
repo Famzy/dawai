@@ -1,9 +1,7 @@
-import 'package:dawai/core/helpers/bottom_nav.dart';
-import 'package:dawai/core/helpers/button_helpers.dart';
 import 'package:dawai/core/utils.dart';
+import 'package:dawai/features/ui/image_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -96,12 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       imgPath: "assets/images/sun.png"),
                   SpaceHelper.verticalSpaceSmall(),
                   CardHelper.drugCard(
-                      svgPath: "assets/svgs/injection.svg",
+                      imgPath: "assets/images/injection.png",
                       drug: "Zoloft",
                       grams: "50 mg",
                       time: "7:00 AM"),
                   SpaceHelper.verticalSpaceSmall(),
                   CardHelper.titleCard(
+                      width: 2.1,
                       context: context,
                       title: "After Breakfast",
                       imgPath: "assets/images/sun.png"),
@@ -113,15 +112,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       time: "7:00 AM"),
                   SpaceHelper.verticalSpaceSmall(),
                   CardHelper.drugCard(
-                      imgPath: "assets/images/drug.png",
+                      imgPath: "assets/images/third.png",
                       drug: "Metoprolol",
                       grams: "100 mg",
+                      scale: 10,
                       time: "7:00 AM"),
                   SpaceHelper.verticalSpaceMedium(),
                   Center(
                     child: Column(
                       children: <Widget>[
-                        ButtonHelpers.addButton(),
+                        ButtonHelpers.addButton(
+                            onTap: () => Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                    transitionDuration:
+                                        const Duration(milliseconds: 350),
+                                    pageBuilder: (context, _, __) =>
+                                        ImageView()))),
                         SpaceHelper.verticalSpace(5),
                         Text(
                           "Add Medication",
@@ -137,12 +144,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-//      floatingActionButton: FloatingActionButton(
-//        onPressed: null,
-//        foregroundColor: overlay,
-//        tooltip: 'Increment',
-//        child: Icon(Icons.add),
-//      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:dawai/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'features/ui/home_view.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),

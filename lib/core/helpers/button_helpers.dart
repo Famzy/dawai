@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils.dart';
 
 class ButtonHelpers {
-  static Widget addButton() {
+  static Widget addButton({Function onTap}) {
     return Container(
       height: 32,
       width: 32,
@@ -11,9 +11,12 @@ class ButtonHelpers {
         color: primaryColorLight,
         borderRadius: BorderRadius.circular(9),
       ),
-      child: Icon(
-        Icons.add,
-        color: primaryColor,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Icon(
+          Icons.add,
+          color: primaryColor,
+        ),
       ),
     );
   }
