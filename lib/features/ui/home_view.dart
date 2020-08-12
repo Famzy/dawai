@@ -1,52 +1,148 @@
-import 'package:dawai/core/theme/app_colors.dart';
-import 'package:dawai/core/theme/hex_code.dart';
+import 'package:dawai/core/helpers/bottom_nav.dart';
+import 'package:dawai/core/helpers/button_helpers.dart';
+import 'package:dawai/core/utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
+  MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      bottomNavigationBar: BottomAppBar(
+        child: BottomNav.nav(),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-              style: TextStyle(color: primaryColor),
+            Container(
+              width: screenWidth(context),
+              height: screenHeight(context) - screenHeight(context) / 1.6,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/header_overlay.png'),
+                ),
+              ),
+              child: Column(
+                children: <Widget>[
+                  SpaceHelper.verticalSpaceMedium(),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.arrow_back_ios,
+                        color: white,
+                      ),
+                      SpaceHelper.horizontalSpace(screenWidth(context) / 4),
+                      Text(
+                        "My Reminders",
+                        style: pageTitle,
+                      ),
+                    ],
+                  ),
+                  SpaceHelper.verticalSpace(screenHeight(context) / 20),
+                  Row(
+                    children: <Widget>[
+                      CardHelper.dateCard(
+                          context: context,
+                          date: "8",
+                          day: "Mon",
+                          cardColor: white),
+                      SpaceHelper.horizontalSpaceSmall(),
+                      CardHelper.dateCard(
+                          context: context,
+                          date: "9",
+                          day: "Tue",
+                          cardColor: primaryColorLight,
+                          style: dateTextBold),
+                      SpaceHelper.horizontalSpaceSmall(),
+                      CardHelper.dateCard(
+                          date: "10",
+                          day: "Wed",
+                          cardColor: white,
+                          context: context),
+                      SpaceHelper.horizontalSpaceSmall(),
+                      CardHelper.dateCard(
+                          date: "11",
+                          day: "Thu",
+                          cardColor: white,
+                          context: context),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: white,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: TextStyle(color: primaryColor),
-            ),
+            SpaceHelper.verticalSpaceSmall(),
+            Container(
+              width: screenWidth(context),
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: <Widget>[
+                  CardHelper.titleCard(
+                      context: context,
+                      title: "Before Breakfast",
+                      imgPath: "assets/images/sun.png"),
+                  SpaceHelper.verticalSpaceSmall(),
+                  CardHelper.drugCard(
+                      svgPath: "assets/svgs/injection.svg",
+                      drug: "Zoloft",
+                      grams: "50 mg",
+                      time: "7:00 AM"),
+                  SpaceHelper.verticalSpaceSmall(),
+                  CardHelper.titleCard(
+                      context: context,
+                      title: "After Breakfast",
+                      imgPath: "assets/images/sun.png"),
+                  SpaceHelper.verticalSpaceSmall(),
+                  CardHelper.drugCard(
+                      imgPath: "assets/images/drug.png",
+                      drug: "Ativan",
+                      grams: "20 mg",
+                      time: "7:00 AM"),
+                  SpaceHelper.verticalSpaceSmall(),
+                  CardHelper.drugCard(
+                      imgPath: "assets/images/drug.png",
+                      drug: "Metoprolol",
+                      grams: "100 mg",
+                      time: "7:00 AM"),
+                  SpaceHelper.verticalSpaceMedium(),
+                  Center(
+                    child: Column(
+                      children: <Widget>[
+                        ButtonHelpers.addButton(),
+                        SpaceHelper.verticalSpace(5),
+                        Text(
+                          "Add Medication",
+                          style: timeText,
+                        )
+                      ],
+                    ),
+                  ),
+                  SpaceHelper.verticalSpaceMedium(),
+                ],
+              ),
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        foregroundColor: overlay,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: null,
+//        foregroundColor: overlay,
+//        tooltip: 'Increment',
+//        child: Icon(Icons.add),
+//      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
