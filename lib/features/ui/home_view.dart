@@ -1,5 +1,6 @@
 import 'package:dawai/core/utils.dart';
 import 'package:dawai/features/ui/image_view.dart';
+import 'package:dawai/features/ui/third_ui_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -128,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     transitionDuration:
                                         const Duration(milliseconds: 350),
                                     pageBuilder: (context, _, __) =>
-                                        ImageView()))),
+                                        ThirdUI()))),
                         SpaceHelper.verticalSpace(5),
                         Text(
                           "Add Medication",

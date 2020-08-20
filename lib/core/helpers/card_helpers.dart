@@ -63,8 +63,7 @@ class CardHelper {
       {String svgPath,
       String grams,
       double scale,
-      String,
-      drug,
+      String drug,
       String time,
       String imgPath}) {
     return Container(

@@ -14,6 +14,19 @@ TextStyle dateText = TextStyle(
     fontFamily: "Roboto",
     fontStyle: FontStyle.normal,
     fontSize: 31.0);
+TextStyle nameText = TextStyle(
+    color: white,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Roboto",
+    fontStyle: FontStyle.normal,
+    fontSize: 21.0);
+
+TextStyle nameTextBlue = TextStyle(
+    color: secondaryColor,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Roboto",
+    fontStyle: FontStyle.normal,
+    fontSize: 21.0);
 //
 TextStyle timeText = TextStyle(
     color: primaryColor,
@@ -52,6 +65,12 @@ TextStyle drugName = TextStyle(
 //
 TextStyle drugGrams = TextStyle(
     color: lightGray,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Roboto",
+    fontStyle: FontStyle.normal,
+    fontSize: 14.0);
+TextStyle cityName = TextStyle(
+    color: white,
     fontWeight: FontWeight.w400,
     fontFamily: "Roboto",
     fontStyle: FontStyle.normal,

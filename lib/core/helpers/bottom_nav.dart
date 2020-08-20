@@ -27,7 +27,7 @@ class BottomNav {
                   )),
                   Text(
                     'Home',
-                    style: TextStyle(color: primaryColor),
+                    style: navSelected,
                   )
                 ],
               ),
@@ -46,7 +46,7 @@ class BottomNav {
                   )),
                   Text(
                     'Reminder',
-                    style: TextStyle(color: lightGray),
+                    style: navText,
                   )
                 ],
               ),
@@ -65,7 +65,7 @@ class BottomNav {
                   )),
                   Text(
                     'Prescription',
-                    style: TextStyle(color: lightGray),
+                    style: navText,
                   )
                 ],
               ),
@@ -84,7 +84,7 @@ class BottomNav {
                   )),
                   Text(
                     'My Account',
-                    style: TextStyle(color: lightGray),
+                    style: navText,
                   )
                 ],
               ),
